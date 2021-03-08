@@ -36,8 +36,6 @@ public class UsersTest {
         assertEquals(5,testUsers.getId());
     }
 
-
-    //helper
     public Users setUpUsers() {
         return new Users("Steve", "Accountant", "Accounting", 0);
 
