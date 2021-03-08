@@ -22,7 +22,7 @@ public class Sql2oGeneralNewsDaoTest {
     @Before
     public void setUp() throws Exception {
         String connectionString = "jdbc:postgresql://localhost:5432/departments_test";
-        Sql2o sql2o = new Sql2o(connectionString, "moringa", "Nya2rango@");
+        Sql2o sql2o = new Sql2o(connectionString, "glory", "password");
         GeneralNewsDao = new Sql2oGeneralNewsDao(sql2o);
 //        DepartmentNewsDao = new Sql2oDepartmentNewsDao(sql2o);
         conn = sql2o.open();
@@ -44,6 +44,6 @@ public class Sql2oGeneralNewsDaoTest {
 
     //helper
     public GeneralNews setupNewGeneralNews(){
-        return new GeneralNews ("Psychology", "Mental wellness", "Gachoki");
+        return new GeneralNews ("Psychology", "Mental wellness", "Glory");
     }
 }

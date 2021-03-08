@@ -22,9 +22,9 @@ public class Sql2oUsersDao implements UsersDao {
             int id = (int) con.createQuery(sql, true)
                     .throwOnMappingFailure(false)
                     .bind(users)
-                    .addParameter("username", users.getUsername())
-                    .addParameter("userposition", users.getUserPosition())
-                    .addParameter("userrole", users.getUserRole())
+                    .addParameter("userName", users.getUsername())
+                    .addParameter("userPosition", users.getUserPosition())
+                    .addParameter("userRole", users.getUserRole())
                     .addParameter("departmentId", users.getDepartmentId())
                     .executeUpdate()
                     .getKey();

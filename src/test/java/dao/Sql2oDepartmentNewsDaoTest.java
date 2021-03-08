@@ -1,6 +1,6 @@
 package dao;
 
-import models.DepartmentsNews;
+import models.DepartmentNews;
 import models.GeneralNews;
 import org.junit.After;
 import org.junit.Before;
@@ -21,7 +21,7 @@ public class Sql2oDepartmentNewsDaoTest {
     @Before
     public void setUp() throws Exception {
         String connectionString = "jdbc:postgresql://localhost:5432/departments_test";
-        Sql2o sql2o = new Sql2o(connectionString, "moringa", "Nya2rango@");
+        Sql2o sql2o = new Sql2o(connectionString, "glory", "password");
         GeneralNewsDao = new Sql2oGeneralNewsDao(sql2o);
         DepartmentsNewsDao = new Sql2oDepartmentNewsDao(sql2o);
         conn = sql2o.open();
@@ -34,7 +34,7 @@ public class Sql2oDepartmentNewsDaoTest {
 
     @Test
     public void addingGeneralNewsSetsId() throws Exception {
-        DepartmentsNews testDepartmentNews = setupNewDepartmentNews();
+        DepartmentNews testDepartmentNews = setupNewDepartmentNews();
         int originalDepartNewsId = testDepartmentNews.getId();
         DepartmentNewsDao.add(testDepartmentNews);
 
@@ -42,7 +42,7 @@ public class Sql2oDepartmentNewsDaoTest {
     }
 
     //  helper
-    public DepartmentsNews setupNewDepartmentNews(){
-        return new DepartmentsNews (0,"Budgeting", "Expenditure", "Baraka");
+    public DepartmentNews setupNewDepartmentNews(){
+        return new DepartmentNews (0,"Budgeting", "Expenditure", "Glory");
     }
 }

@@ -23,9 +23,9 @@ public class Sql2oDepartmentsDao implements DepartmentsDao{
         try (Connection con = sql2o.open()){
             int id = (int) con.createQuery(sql, true)
                     .bind(departments)
-                    .addParameter("departmentname", departments.getDepartmentName())
-                    .addParameter("departmentdescription",departments.getDepartmentDescription())
-                    .addParameter("noofemployees", departments.getNoOfEmployees())
+                    .addParameter("departmentName", departments.getDepartmentName())
+                    .addParameter("departmentDescription",departments.getDepartmentDescription())
+                    .addParameter("noOfEmployees", departments.getNoOfEmployees())
                     .executeUpdate()
                     .getKey();
             departments.setId(id);
