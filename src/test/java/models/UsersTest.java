@@ -18,7 +18,7 @@ public class UsersTest {
     @Test
     public void instantiatesUsersDetails() throws Exception{
         Users testUsers = setUpUsers();
-        assertEquals("Steve", testUsers.getUsername());
+        assertEquals("Glory", testUsers.getUsername());
         assertEquals("Accountant", testUsers.getUserPosition());
         assertEquals("Accounting", testUsers.getUserRole());
         assertEquals(0, testUsers.getDepartmentId());
@@ -27,7 +27,7 @@ public class UsersTest {
     @Test
     public void  getUsername() {
         Users testUsers = setUpUsers();
-        assertEquals("Steve", testUsers.getUsername());
+        assertEquals("Glory", testUsers.getUsername());
     }
     @Test
     public void setId(){
@@ -37,7 +37,7 @@ public class UsersTest {
     }
 
     public Users setUpUsers() {
-        return new Users("Steve", "Accountant", "Accounting", 0);
+        return new Users(" Glory", "Accountant", "Accounting", 0);
 
     }
 }
