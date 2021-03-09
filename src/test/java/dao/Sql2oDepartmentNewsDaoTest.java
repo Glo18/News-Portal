@@ -21,7 +21,7 @@ public class Sql2oDepartmentNewsDaoTest {
     @Before
     public void setUp() throws Exception {
         String connectionString = "jdbc:postgresql://localhost:5432/departments_test";
-        Sql2o sql2o = new Sql2o(connectionString, "glory", "password");
+        Sql2o sql2o = new Sql2o(connectionString, "glory", "myPassword");
         GeneralNewsDao = new Sql2oGeneralNewsDao(sql2o);
         DepartmentsNewsDao = new Sql2oDepartmentNewsDao(sql2o);
         conn = sql2o.open();

@@ -18,9 +18,19 @@ import java.util.List;
 import java.util.Map;
 
 public class App {
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+    }
 
     public static void main (String[] args) {
-        Sql2oDepartmentsDao     DepartmentsDao;
+        port(getHerokuAssignedPort());
+        staticFileLocation("/public");
+
+        Sql2oDepartmentsDao DepartmentsDao;
         Sql2oDepartmentNewsDao DepartmentNewsDao;
         Sql2oGeneralNewsDao GeneralNewsDao;
         Sql2oUsersDao UsersDao;
@@ -30,7 +40,10 @@ public class App {
 //        String connectionString = "jdbc:h2:~/NewsAPI.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         String connectionString =  ("jdbc:postgresql://localhost:5432/departments");
 
-        Sql2o sql2o = new Sql2o(connectionString, "glory", "password");
+        Sql2o sql2o = new Sql2o(connectionString, "glory", "myPassword");
+//
+//        String connectionString = "ec2-54-161-239-198.compute-1.amazonaws.com:5432/d2o3savka6k96l";
+//        Sql2o sql2o = new Sql2o(connectionString, "prkhzklfvimtim", "10c0b6a24de6a90d86ff41ad4c58058c468539b9532ed932d37c3583977b1ee7"); //!
 
         DepartmentsDao = new Sql2oDepartmentsDao(sql2o);
         DepartmentNewsDao = new Sql2oDepartmentNewsDao(sql2o);
@@ -52,6 +65,7 @@ public class App {
             DepartmentNews departmentNews = gson.fromJson(req.body(), DepartmentNews.class);
             DepartmentNewsDao.add(departmentNews);
             res.status(201);
+            res.type("application/json");
             return gson.toJson(departmentNews);
 
         });
