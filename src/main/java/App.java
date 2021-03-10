@@ -37,13 +37,12 @@ public class App {
         Connection conn;
         Gson gson = new Gson();
 
-//        String connectionString = "jdbc:h2:~/NewsAPI.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
-        String connectionString =  ("jdbc:postgresql://localhost:5432/departments");
-
-        Sql2o sql2o = new Sql2o(connectionString, "glory", "myPassword");
+//        String connectionString =  ("jdbc:postgresql://localhost:5432/departments");
 //
-//        String connectionString = "ec2-54-161-239-198.compute-1.amazonaws.com:5432/d2o3savka6k96l";
-//        Sql2o sql2o = new Sql2o(connectionString, "prkhzklfvimtim", "10c0b6a24de6a90d86ff41ad4c58058c468539b9532ed932d37c3583977b1ee7"); //!
+//        Sql2o sql2o = new Sql2o(connectionString, "glory", "myPassword");
+//
+        String connectionString = "jdbc:postgresql:ec2-52-7-115-250.compute-1.amazonaws.com:5432/d5ifsuri8km1nf";
+        Sql2o sql2o = new Sql2o(connectionString, "xduyuntkawctuw", "b94bd3a40367f8c1352d95f137b0fe9c8de03c73e700cd2f29643bd99df59d16"); //!
 
         DepartmentsDao = new Sql2oDepartmentsDao(sql2o);
         DepartmentNewsDao = new Sql2oDepartmentNewsDao(sql2o);
