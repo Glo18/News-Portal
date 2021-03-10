@@ -17,20 +17,31 @@ public class Sql2oUsersDao implements UsersDao {
 
     @Override
     public void add(Users users) {
-        String sql = "INSERT INTO users (username, userPosition, userRole, departmentId) VALUES (:username, :userposition, :userrole, :departmentId)";
-        try (Connection con = sql2o.open()){
-            int id = (int) con.createQuery(sql, true)
-                    .throwOnMappingFailure(false)
+        String sql = "INSERT INTO users (username, userPosition, userRole, departmentId) VALUES (:username, :userPosition, :userRole, :departmentId)";
+        try (Connection conn = sql2o.open()) {
+            int id = (int) conn.createQuery(sql, true)
                     .bind(users)
-                    .addParameter("userName", users.getUsername())
-                    .addParameter("userPosition", users.getUserPosition())
-                    .addParameter("userRole", users.getUserRole())
-                    .addParameter("departmentId", users.getDepartmentId())
                     .executeUpdate()
                     .getKey();
             users.setId(id);
+
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
         }
+
     }
+//        try (Connection con = sql2o.open()){
+//            int id = (int) con.createQuery(sql, true)
+//                    .throwOnMappingFailure(false)
+//                    .bind(users)
+//                    .addParameter("userName", users.getUsername())
+//                    .addParameter("userPosition", users.getUserPosition())
+//                    .addParameter("userRole", users.getUserRole())
+//                    .addParameter("departmentId", users.getDepartmentId())
+//                    .executeUpdate()
+//                    .getKey();
+//            users.setId(id);
+//        }
 
     @Override
     public List<Users> getAllUser() {

@@ -8,8 +8,9 @@ import java.util.List;
 
 public interface DepartmentNewsDao {
     static void add(DepartmentNews departmentNews) {
-
     }
+//    static void add(DepartmentNews departmentNews) {
+//    }
 
     List<DepartmentNews> getAllDepartmentNews();
 

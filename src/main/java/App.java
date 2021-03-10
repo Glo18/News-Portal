@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 public class App {
+
     static int getHerokuAssignedPort() {
         ProcessBuilder processBuilder = new ProcessBuilder();
         if (processBuilder.environment().get("PORT") != null) {
@@ -37,12 +38,11 @@ public class App {
         Connection conn;
         Gson gson = new Gson();
 
-//        String connectionString =  ("jdbc:postgresql://localhost:5432/departments");
+        String connectionString =  ("jdbc:postgresql://localhost:5432/departments");
+        Sql2o sql2o = new Sql2o(connectionString, "glory", "myPassword");
 //
-//        Sql2o sql2o = new Sql2o(connectionString, "glory", "myPassword");
-//
-        String connectionString = "jdbc:postgresql:ec2-52-7-115-250.compute-1.amazonaws.com:5432/d5ifsuri8km1nf";
-        Sql2o sql2o = new Sql2o(connectionString, "xduyuntkawctuw", "b94bd3a40367f8c1352d95f137b0fe9c8de03c73e700cd2f29643bd99df59d16"); //!
+//        String connectionString = "jdbc:postgresql:ec2-52-44-31-100.compute-1.amazonaws.com:5432/de4cs7eerso33p";
+//        Sql2o sql2o = new Sql2o(connectionString, "ftansgjvgbswlh", "56291bb2b8d000a703a05ce159d8f52920a0f7f3ba23ccd6e53125c37b589be1"); //!
 
         DepartmentsDao = new Sql2oDepartmentsDao(sql2o);
         DepartmentNewsDao = new Sql2oDepartmentNewsDao(sql2o);
@@ -117,8 +117,8 @@ public class App {
         });
 
         get("/departments/:id", "application/json", (req, res) -> { //accept a request in format JSON from an app
-            int deparmentsId = Integer.parseInt(req.params("id"));
-            Departments departmentsToFind = DepartmentsDao.getDepartmentsById(deparmentsId );
+            int departmentsId = Integer.parseInt(req.params("id"));
+            Departments departmentsToFind = DepartmentsDao.getDepartmentsById(departmentsId );
             if (departmentsToFind == null){
                 throw new ApiException(404, String.format("No department with the id: \"%s\" exists", req.params("id")));
             }
@@ -126,8 +126,8 @@ public class App {
         });
 
 //        get("/departmentNews/:departmentId", "application/json", (req, res) -> { //accept a request in format JSON from an app
-//            int deparmentNewsId = Integer.parseInt(req.params("id"));
-//            DepartmentNews departmentsNewsToFind = DepartmentNewsDao.getDepartmentNewsById(deparmentNewsId );
+//            int departmentNewsId = Integer.parseInt(req.params("id"));
+//            DepartmentNews departmentsNewsToFind = DepartmentNewsDao.getDepartmentNewsById(departmentNewsId );
 //            if (departmentsNewsToFind== null){
 //                throw new ApiException(404, String.format("No department news with the id: \"%s\" exists", req.params("id")));
 //            }
@@ -135,8 +135,8 @@ public class App {
 //        });
 
         get("/departmentNews/:id", "application/json", (req, res) -> { //accept a request in format JSON from an app
-            int deparmentNewsId = Integer.parseInt(req.params("id"));
-            DepartmentNews departmentsNewsToFind = DepartmentNewsDao.getDepartmentNewsById(deparmentNewsId );
+            int departmentNewsId = Integer.parseInt(req.params("id"));
+            DepartmentNews departmentsNewsToFind = DepartmentNewsDao.getDepartmentNewsById(departmentNewsId );
             if (departmentsNewsToFind== null){
                 throw new ApiException(404, String.format("No department news with the id: \"%s\" exists", req.params("id")));
             }

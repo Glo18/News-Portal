@@ -16,8 +16,6 @@ public class Sql2oDepartmentNewsDao implements DepartmentNewsDao {
         this.sql2o = sql2o;
     }
 
-
-    @Override
     public void add(DepartmentNews departmentNews) {
         String sql = "INSERT INTO news (departmentId, title, news, author) VALUES (:departmentId, :title, :news, :author)";
         try (Connection con = sql2o.open()){

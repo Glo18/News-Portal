@@ -19,17 +19,27 @@ public class Sql2oDepartmentsDao implements DepartmentsDao{
 
     @Override
     public void add(Departments departments) {
-        String sql ="INSERT INTO departments (departmentname, departmentdescription, noofemployees) VALUES (:departmentname, :departmentdescription, :noofemployees )";
-        try (Connection con = sql2o.open()){
-            int id = (int) con.createQuery(sql, true)
+        String sql ="INSERT INTO departments (departmentName, departmentDescription, noOfEmployees) VALUES (:departmentName, :departmentDescription, :noOfEmployees )";
+        try (Connection conn = sql2o.open()) {
+            int id = (int) conn.createQuery(sql, true)
                     .bind(departments)
-                    .addParameter("departmentName", departments.getDepartmentName())
-                    .addParameter("departmentDescription",departments.getDepartmentDescription())
-                    .addParameter("noOfEmployees", departments.getNoOfEmployees())
                     .executeUpdate()
                     .getKey();
             departments.setId(id);
+
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
         }
+//        try (Connection con = sql2o.open()){
+//            int id = (int) con.createQuery(sql, true)
+//                    .bind(departments)
+//                    .addParameter("departmentName", departments.getDepartmentName())
+//                    .addParameter("departmentDescription",departments.getDepartmentDescription())
+//                    .addParameter("noOfEmployees", departments.getNoOfEmployees())
+//                    .executeUpdate()
+//                    .getKey();
+//            departments.setId(id);
+//        }
     }
 
     @Override
