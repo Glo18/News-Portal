@@ -38,11 +38,11 @@ public class App {
         Connection conn;
         Gson gson = new Gson();
 
-        String connectionString =  ("jdbc:postgresql://localhost:5432/departments");
-        Sql2o sql2o = new Sql2o(connectionString, "glory", "myPassword");
-//
-//        String connectionString = "jdbc:postgresql:ec2-52-44-31-100.compute-1.amazonaws.com:5432/de4cs7eerso33p";
-//        Sql2o sql2o = new Sql2o(connectionString, "ftansgjvgbswlh", "56291bb2b8d000a703a05ce159d8f52920a0f7f3ba23ccd6e53125c37b589be1"); //!
+//        String connectionString =  ("jdbc:postgresql://localhost:5432/departments");
+//        Sql2o sql2o = new Sql2o(connectionString, "glory", "myPassword");
+
+        String connectionString = "jdbc:postgresql:ec2-54-161-239-198.compute-1.amazonaws.com:5432/d9j6jroneg559t";
+        Sql2o sql2o = new Sql2o(connectionString, "ahuslgcsjuxarg", "5f124b5ec87bb953f6bcca9f220aaa67310c1816523f5984964238ced08b56d3"); //!
 
         DepartmentsDao = new Sql2oDepartmentsDao(sql2o);
         DepartmentNewsDao = new Sql2oDepartmentNewsDao(sql2o);
@@ -50,8 +50,8 @@ public class App {
         UsersDao = new Sql2oUsersDao(sql2o);
         conn = sql2o.open();
 
-        get("/", "application/json", (req, res) ->
-                "{\"message\":\"Welcome to the organisation news application.\"}");
+//        get("/", "application/json", (req, res) ->
+//                "{\"message\":\"Welcome to the organisation news application.\"}");
 
         post("/departments/new", "application/json", (req, res) -> {
             Departments departments = gson.fromJson(req.body(), Departments.class);
