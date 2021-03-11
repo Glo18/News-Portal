@@ -23,7 +23,7 @@ public class Sql2oGeneralNewsDao implements GeneralNewsDao {
                     .addParameter("author", generalNews.getAuthor())
                     .executeUpdate()
                     .getKey();
-            generalNews.setId(id);
+//            generalNews.setId(id);
         }catch (Sql2oException ex) {
             System.out.println(ex);
         }

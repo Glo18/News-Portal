@@ -32,14 +32,14 @@ public class Sql2oUsersDaoTest {
     @After
     public void tearDown() throws Exception {
     }
-
-    @Test
-    public void addingUserSetsId() throws Exception {
-        Users testUsers = setupNewUser();
-        int originalUsersId = testUsers.getId();
-        UsersDao.add(testUsers);
-        assertNotEquals(originalUsersId,testUsers.getId());
-    }
+//
+//    @Test
+//    public void addingUserSetsId() throws Exception {
+//        Users testUsers = setupNewUser();
+//        int originalUsersId = testUsers.getId();
+//        UsersDao.add(testUsers);
+//        assertNotEquals(originalUsersId,testUsers.getId());
+//    }
 
     public Users setupNewUser(){
         return new Users("Cate", "Software Developer", "Programming", 0);
