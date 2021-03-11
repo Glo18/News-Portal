@@ -34,14 +34,14 @@ public class Sql2oDepartmentNewsDaoTest {
     public void tearDown() throws Exception {
     }
 
-//    @Test
-//    public void addingGeneralNewsSetsId() throws Exception {
-//        DepartmentNews testDepartmentNews = setupNewDepartmentNews();
-//        int originalDepartNewsId = testDepartmentNews.getId();
-//        DepartmentNewsDao.add(testDepartmentNews);
-//
-//        assertNotEquals(originalDepartNewsId ,testDepartmentNews.getId());
-//    }
+    @Test
+    public void addingGeneralNewsSetsId() throws Exception {
+        DepartmentNews testDepartmentNews = setupNewDepartmentNews();
+        int originalDepartNewsId = testDepartmentNews.getId();
+        DepartmentNewsDao.add(testDepartmentNews);
+
+        assertNotEquals(originalDepartNewsId ,testDepartmentNews.getId());
+    }
 
     //  helper
     public DepartmentNews setupNewDepartmentNews(){

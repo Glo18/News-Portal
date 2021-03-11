@@ -48,7 +48,7 @@ public class App {
         DepartmentNewsDao = new Sql2oDepartmentNewsDao(sql2o);
         GeneralNewsDao = new Sql2oGeneralNewsDao(sql2o);
         UsersDao = new Sql2oUsersDao(sql2o);
-        conn = sql2o.open();
+//        conn = sql2o.open();
 
 //        get("/", "application/json", (req, res) ->
 //                "{\"message\":\"Welcome to the organisation news application.\"}");

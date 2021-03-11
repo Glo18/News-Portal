@@ -16,26 +16,26 @@ public class DepartmentsTest {
     public void tearDown() throws Exception {
     }
 
-//    @Test
-//    public void instantiatesDepartmentsDetails() throws Exception{
-//        Departments testDepartments = SetUpDepartments();
-//        assertEquals("production", testDepartments.getDepartmentName());
-//        assertEquals("valuation", testDepartments.getDepartmentDescription());
-//        assertEquals(0, testDepartments.getNoOfEmployees());
-//    }
-//
-//    @Test
-//    public void  getDepartmentDescription() {
-//        Departments testDepartments = SetUpDepartments();
-//        assertEquals("valuation", testDepartments.getDepartmentDescription());
-//    }
-//
-//    @Test
-//    public void setId(){
-//        Departments testDepartments = SetUpDepartments();
-//        testDepartments.setId(4);
-//        assertEquals(4,testDepartments.getId());
-//    }
+    @Test
+    public void instantiatesDepartmentsDetails() throws Exception{
+        Departments testDepartments = SetUpDepartments();
+        assertEquals("production", testDepartments.getDepartmentName());
+        assertEquals("valuation", testDepartments.getDepartmentDescription());
+        assertEquals(0, testDepartments.getNoOfEmployees());
+    }
+
+    @Test
+    public void  getDepartmentDescription() {
+        Departments testDepartments = SetUpDepartments();
+        assertEquals("valuation", testDepartments.getDepartmentDescription());
+    }
+
+    @Test
+    public void setId(){
+        Departments testDepartments = SetUpDepartments();
+        testDepartments.setId(4);
+        assertEquals(4,testDepartments.getId());
+    }
 
     public Departments SetUpDepartments() {
         return new Departments("production", "valuation", 0);

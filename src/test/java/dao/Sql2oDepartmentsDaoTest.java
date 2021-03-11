@@ -33,13 +33,13 @@ public class Sql2oDepartmentsDaoTest {
     public void tearDown() throws Exception {
     }
 
-//    @Test
-//    public void addingDepartmentsSetsId() throws Exception {
-//        Departments testDepartments = setupNewDepartments();
-//        int originalDepartmentsId = testDepartments.getId();
-//        DepartmentsDao.add(testDepartments);
-//        assertNotEquals(originalDepartmentsId,testDepartments.getId());
-//    }
+    @Test
+    public void addingDepartmentsSetsId() throws Exception {
+        Departments testDepartments = setupNewDepartments();
+        int originalDepartmentsId = testDepartments.getId();
+        DepartmentsDao.add(testDepartments);
+        assertNotEquals(originalDepartmentsId,testDepartments.getId());
+    }
 
     //helper
     public Departments setupNewDepartments(){

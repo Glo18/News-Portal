@@ -35,13 +35,13 @@ public class Sql2oGeneralNewsDaoTest {
     public void tearDown() throws Exception {
     }
 
-//    @Test
-//    public void addingGeneralNewsSetsId() throws Exception {
-//        GeneralNews testGeneralNews = setupNewGeneralNews();
-//        int originalGeneralNewsId = testGeneralNews.getId();
-//        GeneralNewsDao.add(testGeneralNews);
-//        assertNotEquals(originalGeneralNewsId ,testGeneralNews.getId());
-//    }
+    @Test
+    public void addingGeneralNewsSetsId() throws Exception {
+        GeneralNews testGeneralNews = setupNewGeneralNews();
+        int originalGeneralNewsId = testGeneralNews.getId();
+        GeneralNewsDao.add(testGeneralNews);
+        assertNotEquals(originalGeneralNewsId ,testGeneralNews.getId());
+    }
 
 
     //helper

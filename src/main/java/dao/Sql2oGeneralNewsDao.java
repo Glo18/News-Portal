@@ -18,8 +18,6 @@ public class Sql2oGeneralNewsDao implements GeneralNewsDao {
         String sql = "INSERT INTO news (title, news, author) VALUES (:title, :news, :author)";
         try (Connection con = sql2o.open()){
             int id = (int) con.createQuery(sql, true)
-                    .throwOnMappingFailure(false)
-                    .bind(generalNews)
                     .addParameter("title", generalNews.getTitle())
                     .addParameter("news", generalNews.getNews())
                     .addParameter("author", generalNews.getAuthor())
